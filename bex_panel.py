@@ -43,6 +43,9 @@ class BATEX_PT_Panel(Panel):
         row.prop(context.scene, "export_animations")
 
         row = layout.row()
+        row.prop(context.scene, "export_custom_properties")
+
+        row = layout.row()
         row.operator('object.bex_ot_operator', text='Export')
 
 

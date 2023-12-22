@@ -8,9 +8,10 @@ Export selected objects as fbx in batch operation.
 * Define export folder, which is stored to .blend-file
 * Open export folder with one click
 * Export armature and animations
+* Export object custom properties
 
 ### Installing
-1. Download zip file: https://github.com/jayanam/batex/archive/master.zip
+1. Download zip file: https://github.com/grimseal/batex/archive/master.zip
 2. Open Blender
 3. Go to edit -> preferences -> addons
 4. Click install button
