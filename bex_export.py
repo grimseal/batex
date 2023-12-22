@@ -96,6 +96,11 @@ class BatEx_Export:
     if operator is not bpy.ops and operator.poll():
       operator() # exec operator
 
+  def restore_selection(self):
+    bpy.ops.object.select_all(action='DESELECT')
+    for obj in self.__export_objects:
+      obj.select_set(state=True)
+
   def do_export(self):
 
     bpy.ops.object.mode_set(mode='OBJECT')
@@ -142,3 +147,5 @@ class BatEx_Export:
 
       if old_pos is not None:
         set_object_to_loc(obj, old_pos)
+    
+    self.restore_selection()

@@ -3,7 +3,7 @@ bl_info = {
     "author" : "jayanam",
     "descrtion" : "Batch export as Fbx",
     "blender" : (2, 80, 0),
-    "version" : (0, 6, 2, 0),
+    "version" : (0, 6, 2, 1),
     "location" : "Batex panel",
     "warning" : "",
     "category" : "Import-Export"
