@@ -18,6 +18,7 @@ class BatEx_Export:
     self.__export_objects = context.selected_objects
     self.__export_animations = context.scene.export_animations
     self.__export_custom_properties = context.scene.export_custom_properties
+    self.__preprocessor_operator = context.scene.preprocessor_operator
     self.__mat_faces = {}
     self.__materials = []
   
@@ -82,6 +83,19 @@ class BatEx_Export:
 
     bpy.ops.object.mode_set(mode='OBJECT')
 
+  def call_preprocessor_operator(self):
+    if not self.__preprocessor_operator:
+      return
+    operator_name_path = [self.__preprocessor_operator]
+    delimiter = "."
+    if delimiter in self.__preprocessor_operator:
+      operator_name_path = self.__preprocessor_operator.split(delimiter)
+    operator = bpy.ops
+    for name in operator_name_path:
+      operator = getattr(operator, name, bpy.ops)
+    if operator is not bpy.ops and operator.poll():
+      operator() # exec operator
+
   def do_export(self):
 
     bpy.ops.object.mode_set(mode='OBJECT')
@@ -90,6 +104,8 @@ class BatEx_Export:
       bpy.ops.object.select_all(action='DESELECT') 
       obj.select_set(state=True)
 
+      self.call_preprocessor_operator()
+      
       # Center selected object
       old_pos = self.do_center(obj)
 

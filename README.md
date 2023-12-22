@@ -9,6 +9,7 @@ Export selected objects as fbx in batch operation.
 * Open export folder with one click
 * Export armature and animations
 * Export object custom properties
+* Execute preprocessor operator
 
 ### Installing
 1. Download zip file: https://github.com/grimseal/batex/archive/master.zip

@@ -39,6 +39,13 @@ class BATEX_PT_Panel(Panel):
         col_smooth.alignment = 'EXPAND'
         col_smooth.prop(context.scene, "export_smoothing", text="")
 
+        # Preprocessor
+        row = layout.row()
+        row.label(text="Preprocessor operator idname:")
+        row = layout.row()
+        col = row.column()
+        col.prop(context.scene, "preprocessor_operator", text="")
+
         row = layout.row()
         row.prop(context.scene, "export_animations")
 
